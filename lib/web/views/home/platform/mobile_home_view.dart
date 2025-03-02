@@ -47,6 +47,12 @@ class _MobileHomeViewState extends State<MobileHomeView>
   }
 
   @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(final BuildContext context) {
     final Size size = MediaQuery.sizeOf(context);
     final FlutterAnimateBorderController controller =

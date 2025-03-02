@@ -10,7 +10,7 @@ class AppText {
   /// HOME
   static const String homeText1 = 'Hi there :)';
   static const String homeText2 =
-      'Innovator,Architect,Visionary,Open-Source Contributor,Problem Solver,Flutter Expert,Dishank Jindal';
+      'Problem Solver,SOLID Advocate,Open-Source Contributor,Flutter Expert,Dishank Jindal';
   static const String homeText3 =
       'Mobile Software Engineer\nBring your ideas to life with me';
   static const String homeText4 =
@@ -49,8 +49,7 @@ class AppText {
   static const String scheduleNow = 'Schedule Now';
   static const String designedBy = 'Designed by ';
   static const String babitaSharma = 'Babita Sharma';
-  static const String madeWith = 'Made with ';
-  static const String poweredBy = '  | Powered by ';
+  static const String poweredBy = ' | Powered by ';
 }
 
 class AppUrl {

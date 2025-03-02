@@ -73,14 +73,14 @@ class RingExpanding extends StatefulWidget {
 
 class _RingExpandingState extends State<RingExpanding>
     with SingleTickerProviderStateMixin {
-  late final AnimationController controller;
+  late final AnimationController _animationController;
 
   late final Tween<double> scaleValue;
 
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
+    _animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
     );
@@ -93,7 +93,7 @@ class _RingExpandingState extends State<RingExpanding>
 
     final SpringSimulation simulation = SpringSimulation(spring, 0, 1, 1);
 
-    controller
+    _animationController
       ..animateWith(simulation)
       ..forward()
       ..repeat();
@@ -101,19 +101,19 @@ class _RingExpandingState extends State<RingExpanding>
 
   @override
   void dispose() {
-    controller.dispose();
+    _animationController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(final BuildContext context) {
     return AnimatedBuilder(
-      animation: controller,
+      animation: _animationController,
       builder: (final BuildContext context, _) {
         return Opacity(
-          opacity: controller.value,
+          opacity: _animationController.value,
           child: SizedBox.square(
-            dimension: 500 * controller.value,
+            dimension: 500 * _animationController.value,
             child: const Material(
               type: MaterialType.transparency,
               shape: CircleBorder(
@@ -130,7 +130,12 @@ class _RingExpandingState extends State<RingExpanding>
   void debugFillProperties(final DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty<AnimationController>('controller', controller))
+      ..add(
+        DiagnosticsProperty<AnimationController>(
+          'controller',
+          _animationController,
+        ),
+      )
       ..add(DiagnosticsProperty<Tween<double>>('scaleValue', scaleValue));
   }
 }

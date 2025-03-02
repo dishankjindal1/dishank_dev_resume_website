@@ -94,9 +94,9 @@ class _MainViewState extends State<MainView> {
               controller: rootPageController,
               pageSnapping: false,
               scrollDirection: Axis.vertical,
-              itemBuilder: (final BuildContext context, final int index) {
-                return children[index];
-              },
+              itemBuilder:
+                  (final BuildContext context, final int index) =>
+                      children[index],
               itemCount: children.length,
             ),
             HeaderView(rootPageController, _menuButtonCtrl),

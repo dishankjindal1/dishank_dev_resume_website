@@ -22,7 +22,6 @@ class ImageAssets {
 
   /// Icons
   static const String menu = '$_base/icon/menu.png';
-  static const String love = '$_base/icon/love.png';
   static const String india = '$_base/icon/india.png';
 
   /// Views

@@ -50,7 +50,6 @@ class WebExpertiseView extends StatelessWidget {
                             onExit: (_) {
                               listAnimation[index].reverse();
                             },
-
                             child: SizedBox(
                               width: size.width * 0.15,
                               height: 180,

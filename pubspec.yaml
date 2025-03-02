@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 publish_to: "none"
 
-version: 1.0.0+010000
+version: 1.1.0+010100
 
 environment:
   sdk: ^3.7.0
@@ -13,7 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_animate: ^4.5.2
+  flutter_animate:
   flutter_animate_border:
     path: /Users/dishankjindal/projects/personal/flutter/flutter_animate_border
   gap:

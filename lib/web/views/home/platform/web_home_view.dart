@@ -41,9 +41,17 @@ class _WebHomeViewState extends State<WebHomeView>
     ).animate(_animationController);
     unawaited(
       Future<void>.delayed(const Duration(seconds: 1)).then((_) {
-        _animationController.forward();
+        if (mounted) {
+          _animationController.forward();
+        }
       }),
     );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 
   @override

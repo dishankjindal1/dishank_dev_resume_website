@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:dishank_dev_resume_website/web/utilities/color_assets.dart';
 import 'package:dishank_dev_resume_website/web/utilities/constant.dart';
-import 'package:dishank_dev_resume_website/web/utilities/image_assets.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -17,8 +16,10 @@ class Footer extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         const Gap(16),
+
         Row(
           mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text.rich(
               TextSpan(
@@ -39,27 +40,6 @@ class Footer extends StatelessWidget {
                                 ),
                               ),
                   ),
-                ],
-              ),
-              style: Theme.of(context).textTheme.labelSmall,
-            ),
-          ],
-        ),
-        const Gap(12),
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text.rich(
-              TextSpan(
-                children: <InlineSpan>[
-                  const TextSpan(text: AppText.madeWith),
-                  WidgetSpan(
-                    child: SizedBox.square(
-                      dimension: 12,
-                      child: Image.network(ImageAssets.love),
-                    ),
-                  ),
                   const TextSpan(text: AppText.poweredBy),
                   WidgetSpan(
                     child: InkWell(
@@ -71,10 +51,22 @@ class Footer extends StatelessWidget {
                             ),
                           ),
                       child: const SizedBox.square(
-                        dimension: 12,
+                        dimension: 10,
                         child: FlutterLogo(),
                       ),
                     ),
+                  ),
+                  TextSpan(
+                    text: ' Flutter',
+                    recognizer:
+                        TapGestureRecognizer()
+                          ..onTap =
+                              () => unawaited(
+                                launchUrlString(
+                                  AppUrl.flutter,
+                                  mode: LaunchMode.externalApplication,
+                                ),
+                              ),
                   ),
                 ],
               ),

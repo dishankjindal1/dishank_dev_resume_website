@@ -56,13 +56,13 @@ class WebApp extends StatelessWidget {
             data: ThemeData(
               textTheme: GoogleFonts.robotoTextTheme().copyWith(
                 displayLarge: const TextStyle(
-                  fontSize: 48,
+                  fontSize: 42,
                   height: 1.25,
                   fontWeight: FontWeight.w700,
                   color: Color(AppColor.textWhite),
                 ),
                 displayMedium: const TextStyle(
-                  fontSize: 36,
+                  fontSize: 32,
                   height: 1.25,
                   fontWeight: FontWeight.w700,
                   color: Color(AppColor.textWhite),
