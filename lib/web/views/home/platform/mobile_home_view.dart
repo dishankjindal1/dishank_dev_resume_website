@@ -90,7 +90,9 @@ class _MobileHomeViewState extends State<MobileHomeView>
                     alignment: Alignment.bottomLeft,
                     child: SizedBox.square(
                       dimension: circleSize,
-                      child: DecoratedBox(
+
+                      // ignore: use_decorated_box
+                      child: Container(
                         decoration: BoxDecoration(
                           border: Border.all(
                             width: 12,
