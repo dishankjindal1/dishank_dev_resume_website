@@ -1,5 +1,5 @@
+import 'package:dishank_dev_resume_website/web/utilities/all_assets.dart';
 import 'package:dishank_dev_resume_website/web/utilities/color_assets.dart';
-import 'package:dishank_dev_resume_website/web/utilities/image_assets.dart';
 import 'package:dishank_dev_resume_website/web/utilities/ui_extensions.dart';
 import 'package:dishank_dev_resume_website/web/views/home/platform/mobile_home_view.dart';
 import 'package:dishank_dev_resume_website/web/views/home/platform/web_home_view.dart';

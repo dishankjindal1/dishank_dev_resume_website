@@ -9,11 +9,37 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_animate_border/flutter_animate_border.dart';
 import 'package:gap/gap.dart';
 
-class WebExpertiseView extends StatelessWidget {
-  const WebExpertiseView(this.expertiseList, {super.key});
+class WebExpertiseView extends StatefulWidget {
+  const WebExpertiseView(
+    this.expertiseList,
+    this.pianoNotes,
+    this.playMusicCallback, {
+    super.key,
+  });
 
   final List<String> expertiseList;
+  final List<String> pianoNotes;
+  final void Function(int) playMusicCallback;
 
+  @override
+  State<WebExpertiseView> createState() => _WebExpertiseViewState();
+
+  @override
+  void debugFillProperties(final DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(IterableProperty<String>('expertiseList', expertiseList))
+      ..add(IterableProperty<String>('pianoNotes', pianoNotes))
+      ..add(
+        ObjectFlagProperty<void Function(int p1)>.has(
+          'playMusicCallback',
+          playMusicCallback,
+        ),
+      );
+  }
+}
+
+class _WebExpertiseViewState extends State<WebExpertiseView> {
   @override
   Widget build(final BuildContext context) {
     final Size size = MediaQuery.sizeOf(context);
@@ -39,20 +65,22 @@ class WebExpertiseView extends StatelessWidget {
               runSpacing: 16,
               spacing: 16,
               children:
-                  List<Widget>.generate(expertiseList.length, (
-                        final int index,
-                      ) {
-                        if (index.isEven) {
-                          return MouseRegion(
-                            onEnter: (_) {
-                              listAnimation[index].forward();
-                            },
-                            onExit: (_) {
-                              listAnimation[index].reverse();
-                            },
-                            child: SizedBox(
-                              width: size.width * 0.15,
-                              height: 180,
+                  List<Widget>.generate(
+                        widget.expertiseList.length,
+                        (final int index) => MouseRegion(
+                          onEnter: (_) {
+                            listAnimation[index].forward();
+                            widget.playMusicCallback(index);
+                          },
+                          onExit: (_) {
+                            listAnimation[index].reverse();
+                          },
+
+                          child: SizedBox(
+                            width: size.width * 0.15,
+                            height: 180,
+                            child: AspectRatio(
+                              aspectRatio: 1,
                               child: FlutterAnimateBorder(
                                 controller:
                                     FlutterAnimateBorderController()
@@ -67,52 +95,19 @@ class WebExpertiseView extends StatelessWidget {
                                       )
                                       ..setLineThickness(2)
                                       ..setLineWidth(48)
+                                      ..setLinePadding(0)
                                       ..setCornerRadius(18),
-                                child: InfoCard.dark(
-                                  label: expertiseList[index],
-                                ),
-                              ),
-                            ),
-                          );
-                        } else {
-                          return MouseRegion(
-                            onEnter: (_) {
-                              listAnimation[index].forward();
-                            },
-                            onExit: (_) {
-                              listAnimation[index].reverse();
-                            },
 
-                            child: SizedBox(
-                              width: size.width * 0.15,
-                              height: 180,
-                              child: AspectRatio(
-                                aspectRatio: 1,
-                                child: FlutterAnimateBorder(
-                                  controller:
-                                      FlutterAnimateBorderController()
-                                        ..setGradient(
-                                          const RadialGradient(
-                                            radius: 1,
-                                            colors: <Color>[
-                                              Color(AppColor.bgYellow),
-                                              Colors.transparent,
-                                            ],
-                                          ),
-                                        )
-                                        ..setLineThickness(2)
-                                        ..setLineWidth(48)
-                                        ..setLinePadding(0)
-                                        ..setCornerRadius(18),
-                                  child: InfoCard.light(
-                                    label: expertiseList[index],
-                                  ),
+                                child: (index.isEven
+                                    ? InfoCard.light
+                                    : InfoCard.dark)(
+                                  label: widget.expertiseList[index],
                                 ),
                               ),
                             ),
-                          );
-                        }
-                      })
+                          ),
+                        ),
+                      )
                       .map(
                         (final Widget child) => child
                             .animate(
@@ -135,6 +130,8 @@ class WebExpertiseView extends StatelessWidget {
   @override
   void debugFillProperties(final DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(IterableProperty<String>('expertiseList', expertiseList));
+    properties.add(
+      IterableProperty<String>('expertiseList', widget.expertiseList),
+    );
   }
 }

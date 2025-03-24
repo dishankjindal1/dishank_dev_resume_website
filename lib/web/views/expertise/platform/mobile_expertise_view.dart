@@ -9,9 +9,16 @@ import 'package:flutter_animate_border/flutter_animate_border.dart';
 import 'package:gap/gap.dart';
 
 class MobileExpertiseView extends StatelessWidget {
-  const MobileExpertiseView(this.expertiseList, {super.key});
+  const MobileExpertiseView(
+    this.expertiseList,
+    this.pianoNotes,
+    this.playMusicCallback, {
+    super.key,
+  });
 
   final List<String> expertiseList;
+  final List<String> pianoNotes;
+  final void Function(int) playMusicCallback;
 
   @override
   Widget build(final BuildContext context) {
@@ -75,27 +82,12 @@ class MobileExpertiseView extends StatelessWidget {
                       ) {
                         final List<int> white = <int>[0, 3, 4, 7, 8];
 
-                        if (white.any((final int e) => index == e)) {
-                          return FlutterAnimateBorder(
-                            controller:
-                                FlutterAnimateBorderController()
-                                  ..setGradient(
-                                    const RadialGradient(
-                                      radius: 1,
-                                      colors: <Color>[
-                                        Color(AppColor.bgYellow),
-                                        Colors.transparent,
-                                      ],
-                                    ),
-                                  )
-                                  ..setLineThickness(2)
-                                  ..setLineWidth(48)
-                                  ..setCornerRadius(18),
-                            child: InfoCard.dark(label: expertiseList[index]),
-                          );
-                        } else {
-                          return AspectRatio(
-                            aspectRatio: 1,
+                        return AspectRatio(
+                          aspectRatio: 1,
+                          child: GestureDetector(
+                            onTap: () {
+                              playMusicCallback(index);
+                            },
                             child: FlutterAnimateBorder(
                               controller:
                                   FlutterAnimateBorderController()
@@ -112,12 +104,14 @@ class MobileExpertiseView extends StatelessWidget {
                                     ..setLineWidth(48)
                                     ..setLinePadding(0)
                                     ..setCornerRadius(18),
-                              child: InfoCard.light(
+                              child: (white.any((final int e) => index == e)
+                                  ? InfoCard.dark
+                                  : InfoCard.light)(
                                 label: expertiseList[index],
                               ),
                             ),
-                          );
-                        }
+                          ),
+                        );
                       })
                       .map(
                         (final Widget child) =>
@@ -134,6 +128,14 @@ class MobileExpertiseView extends StatelessWidget {
   @override
   void debugFillProperties(final DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(IterableProperty<String>('expertiseList', expertiseList));
+    properties
+      ..add(IterableProperty<String>('expertiseList', expertiseList))
+      ..add(IterableProperty<String>('pianoNotes', pianoNotes))
+      ..add(
+        ObjectFlagProperty<Function(int p1)>.has(
+          'playMusicCallback',
+          playMusicCallback,
+        ),
+      );
   }
 }

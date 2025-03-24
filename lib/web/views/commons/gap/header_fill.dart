@@ -8,15 +8,19 @@ class HeaderFill extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    return SizedBox(
-      height:
-          space +
-          ((AppGlobalKey.headerKey.currentContext?.findRenderObject()
-                      as RenderBox?)
-                  ?.size
-                  .height ??
-              0),
-    );
+    try {
+      return SizedBox(
+        height:
+            space +
+            ((AppGlobalKey.headerKey.currentContext?.findRenderObject()
+                        as RenderBox?)
+                    ?.size
+                    .height ??
+                0),
+      );
+    } on Object {
+      return const SizedBox.shrink();
+    }
   }
 
   @override

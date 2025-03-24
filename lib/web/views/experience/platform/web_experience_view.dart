@@ -1,6 +1,6 @@
+import 'package:dishank_dev_resume_website/web/utilities/all_assets.dart';
 import 'package:dishank_dev_resume_website/web/utilities/color_assets.dart';
 import 'package:dishank_dev_resume_website/web/utilities/constant.dart';
-import 'package:dishank_dev_resume_website/web/utilities/image_assets.dart';
 import 'package:dishank_dev_resume_website/web/views/commons/extensions/padding.dart';
 import 'package:dishank_dev_resume_website/web/views/commons/gap/header_fill.dart';
 import 'package:dishank_dev_resume_website/web/views/experience/shared/bullet_point_widget.dart';

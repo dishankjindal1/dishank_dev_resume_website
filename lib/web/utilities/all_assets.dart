@@ -27,3 +27,29 @@ class ImageAssets {
   /// Views
   static const String experienceView1 = '$_base/img/experience_view_1.png';
 }
+
+class SoundAssets {
+  static const String _base = 'https://ik.imagekit.io/Dishank/dishank.dev';
+
+  /// Piano Notes
+  static const String db4 =
+      '$_base/piano_notes/pianoppdb4.mp3?updatedAt=1742802202255';
+  static const String c4 =
+      '$_base/piano_notes/pianoppc4.mp3?updatedAt=1742802200254';
+  static const String e4 =
+      '$_base/piano_notes/pianoppe4.mp3?updatedAt=1742802200257';
+  static const String a4 =
+      '$_base/piano_notes/pianoppa4.mp3?updatedAt=1742802198920';
+  static const String bb4 =
+      '$_base/piano_notes/pianoppbb4.mp3?updatedAt=1742802198753';
+  static const String d4 =
+      '$_base/piano_notes/pianoppd4.mp3?updatedAt=1742802198913';
+  static const String eb4 =
+      '$_base/piano_notes/pianoppeb4.mp3?updatedAt=1742802201539';
+  static const String f4 =
+      '$_base/piano_notes/pianoppf4.mp3?updatedAt=1742802202862';
+  static const String g4 =
+      '$_base/piano_notes/pianoppg4.mp3?updatedAt=1742802200259';
+  static const String gb4 =
+      '$_base/piano_notes/pianoppgb4.mp3?updatedAt=1742802199490';
+}

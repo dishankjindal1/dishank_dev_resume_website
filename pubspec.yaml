@@ -3,11 +3,11 @@ description: A new Flutter project.
 
 publish_to: "none"
 
-version: 1.1.0+010100
+version: 1.1.1+010101
 
 environment:
   sdk: ^3.7.0
-  flutter: ^3.29.0
+  flutter: ^3.29.2
 
 dependencies:
   flutter:
@@ -18,6 +18,7 @@ dependencies:
     path: /Users/dishankjindal/projects/personal/flutter/flutter_animate_border
   gap:
   google_fonts:
+  just_audio:
   url_launcher:
   web:
 

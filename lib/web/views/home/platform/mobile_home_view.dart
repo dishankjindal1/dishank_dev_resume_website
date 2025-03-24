@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:dishank_dev_resume_website/web/core/text_animating_widget.dart';
+import 'package:dishank_dev_resume_website/web/utilities/all_assets.dart';
 import 'package:dishank_dev_resume_website/web/utilities/color_assets.dart';
 import 'package:dishank_dev_resume_website/web/utilities/constant.dart';
 import 'package:dishank_dev_resume_website/web/utilities/enums.dart';
 import 'package:dishank_dev_resume_website/web/utilities/global_keys.dart';
-import 'package:dishank_dev_resume_website/web/utilities/image_assets.dart';
 import 'package:dishank_dev_resume_website/web/views/home/hollow_container_painter.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -90,7 +90,7 @@ class _MobileHomeViewState extends State<MobileHomeView>
                     alignment: Alignment.bottomLeft,
                     child: SizedBox.square(
                       dimension: circleSize,
-                      child: Container(
+                      child: DecoratedBox(
                         decoration: BoxDecoration(
                           border: Border.all(
                             width: 12,

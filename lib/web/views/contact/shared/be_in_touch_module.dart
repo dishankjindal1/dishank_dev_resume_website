@@ -1,7 +1,7 @@
 import 'dart:async';
 
+import 'package:dishank_dev_resume_website/web/utilities/all_assets.dart';
 import 'package:dishank_dev_resume_website/web/utilities/constant.dart';
-import 'package:dishank_dev_resume_website/web/utilities/image_assets.dart';
 import 'package:dishank_dev_resume_website/web/utilities/ui_extensions.dart';
 import 'package:dishank_dev_resume_website/web/views/commons/extensions/box.dart';
 import 'package:dishank_dev_resume_website/web/views/commons/extensions/padding.dart';

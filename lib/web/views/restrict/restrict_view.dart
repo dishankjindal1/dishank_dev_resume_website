@@ -1,5 +1,5 @@
+import 'package:dishank_dev_resume_website/web/utilities/all_assets.dart';
 import 'package:dishank_dev_resume_website/web/utilities/color_assets.dart';
-import 'package:dishank_dev_resume_website/web/utilities/image_assets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
